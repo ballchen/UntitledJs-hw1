@@ -1,0 +1,38 @@
+<html>
+<head>
+	<title><%= title %></title>
+	<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.min.js"></script>
+	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.1/angular-route.min.js"></script>
+	<script type="text/javascript" src="./javascripts/redditapp.js"></script>
+</head>
+<body ng-app="reddit" ng-controller="redditCtrl">
+
+    <h1>Welcome to Reddit</h1>
+   	<div >
+         
+   		<table >
+   			<thead>
+   				<tr>
+   					<td>title</td>
+   					<td>createat</td>
+   					
+   				</tr>
+   			</thead>
+   			<tbody ng-repeat= "info in firstpage">
+   				<tr >
+   					<td>{{info.data.title}}</td>
+   					<td>{{info.data.created_utc}}</td>
+   				</tr>
+   			</tbody>	
+
+   		</table>
+   		
+
+   	</div>
+      <div>Next page is {{after}}</div>
+   	<div>
+   			<button ng-click="next()">next</button>
+
+   	</div>
+   </body>
+</html>

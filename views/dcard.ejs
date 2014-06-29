@@ -1,0 +1,40 @@
+<html>
+<head>
+	<title><%= title %></title>
+	<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.min.js"></script>
+	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.1/angular-route.min.js"></script>
+	<script type="text/javascript" src="./javascripts/dcardapp.js"></script>
+</head>
+<body ng-app="dcard" ng-controller="dcardCtrl">
+
+    <h1>Welcome to Dcard</h1>
+   	<div >
+
+   		<table >
+   			<thead>
+   				<tr>
+   					<td>title</td>
+   					<td>createat</td>
+   					<td>gender</td>
+   				</tr>
+   			</thead>
+   			<tbody ng-repeat= "info in firstpage">
+   				<tr >
+   					<td>{{info.version[0].title}}</td>
+   					<td>{{info.createdAt}}</td>
+   					<td>{{info.member.gender}}</td>
+   					
+   					
+   				</tr>
+   			</tbody>	
+
+   		</table>
+   		
+
+   	</div>
+   	<div>
+   			<button ng-click="next()">next</button>
+
+   	</div>
+   </body>
+</html>

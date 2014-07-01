@@ -1,7 +1,6 @@
-var app = angular.module('dcard',[]);
 var page = 1;
 var arr = [];
-app.controller('dcardCtrl',function($scope, $http){
+function dcardCtrl($scope, $http){
 	console.log("dcardCtrl executed!");
 	
 	$http({method: 'GET', url: '/api/dcard/1'}).
@@ -20,4 +19,4 @@ app.controller('dcardCtrl',function($scope, $http){
   	    })
 	    
 	}
-});
+}

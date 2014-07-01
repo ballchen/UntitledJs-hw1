@@ -1,13 +1,23 @@
 <!DOCTYPE html>
-<html>
+<html ng-app = "myapp">
   <head>
     <title><%= title %></title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.1.5/angular.min.js"></script>
+    <script type="text/javascript" src="./javascripts/angular-ui-router.js"></script> 
+    <script type="text/javascript" src="./javascripts/routeapp.js"></script>
+
+    <script type="text/javascript" src="./javascripts/redditapp.js"></script>
+    <script type="text/javascript" src="./javascripts/dcardapp.js"></script>
+
+
   </head>
   <body>
     <h1>This is a Dcard and Reddit Scraper</h1>
     <p>Welcome to <%= title %></p>
-    <a href="/dcard">Dcard</a>
-    <a href="/reddit">Reddit</a>
+    <span><a ui-sref="dcard" >Dcard</a></span>
+    <span><a ui-sref="reddit" >Reddit</a></span>
+    <span><a ui-sref="index">index</a></span>
+    <div ui-view></div>  
   </body>
 </html>

@@ -10,6 +10,8 @@ var routes = require('./routes/index');
 var dcard = require('./routes/dcard');
 var api = require('./routes/api');
 var reddit = require('./routes/reddit');
+var partials = require('./routes/partials');
+
 
 var app = express();
 
@@ -24,9 +26,13 @@ app.use(bodyParser.urlencoded());
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+
+app.set('view options', { layout:'layout.ejs' });
+
 app.use('/', routes);
-app.use('/dcard', dcard);
-app.use('/reddit',reddit);
+app.use('/partials', partials);
+// app.use('/dcard', dcard);
+// app.use('/reddit',reddit);
 app.use('/api', api);
 
 

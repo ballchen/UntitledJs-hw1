@@ -8,7 +8,7 @@ router.get('/', function(req, res) {
 });
 
 router.get('/reddit', function(req, res) {
-	var rurl = 'http://www.reddit.com/.json';
+	var rurl = 'http://www.reddit.com/.json?limit=10';
 	request.get(rurl, function(err, response, body){
 		
 		res.send(body);
@@ -16,7 +16,7 @@ router.get('/reddit', function(req, res) {
 
 });
 router.get('/reddit/:after', function(req,res){
-	var raurl = 'http://www.reddit.com/.json?after='+req.params.after;
+	var raurl = 'http://www.reddit.com/.json?limit=10&after='+req.params.after;
 	request.get(raurl, function(err, response, body){
 		res.send(body);
 	})

@@ -1,10 +1,9 @@
-var app = angular.module('reddit',[]);
-
-app.controller('redditCtrl',function($scope, $http){
+function redditCtrl ($scope, $http){
 	console.log("redditCtrl executed!");
 	
 	$http({method: 'GET', url: '/api/reddit'}).
     success(function(data, status, headers, config) {
+    console.log(data);
       $scope.firstpage = data.data.children;
       console.log(data);
       if(data.data.after != null){
@@ -22,6 +21,10 @@ app.controller('redditCtrl',function($scope, $http){
 			$http({method: 'GET', url: '/api/reddit/'+$scope.after}).
 		    success(function(data, status, headers, config) {
 		      $scope.firstpage = $scope.firstpage.concat(data.data.children);
+		      if(data.data.after != null){
+	      	$scope.end = false;
+	      	$scope.after = data.data.after;
+	      }
 		    });
 		}else{
 			$scope.end = true;
@@ -29,4 +32,4 @@ app.controller('redditCtrl',function($scope, $http){
 
 	    
 	}
-});
+}
